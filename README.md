@@ -50,3 +50,18 @@ contract MyContract {
 }
 
 ```
+
+## Development
+
+To test the contract in a private network.
+
+```bash
+# Run local hardhat node.
+$ yarn hardhat node
+
+# Deploy WETH9 token.
+$ yarn weth9:deploy
+
+# Deploy NonfungiblePositionManager contract.
+$ yarn position-manager:deploy
+```
