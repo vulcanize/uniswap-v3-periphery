@@ -4,8 +4,9 @@ import '@nomiclabs/hardhat-waffle'
 import '@nomiclabs/hardhat-etherscan'
 import 'hardhat-watcher'
 
-import './tasks/position-manager-deploy'
 import './tasks/weth9-deploy'
+import './tasks/position-manager-deploy'
+import './tasks/position-manager-mint'
 
 const LOW_OPTIMIZER_COMPILER_SETTINGS = {
   version: '0.7.6',

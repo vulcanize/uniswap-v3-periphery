@@ -65,6 +65,7 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "weth9:deploy": "hardhat --network localhost weth9-deploy",
-    "position-manager:deploy": "hardhat --network localhost position-manager-deploy"
+    "position-manager:deploy": "hardhat --network localhost position-manager-deploy",
+    "position-manager:mint": "hardhat --network localhost position-manager-mint"
   }
 }
