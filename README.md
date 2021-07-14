@@ -78,5 +78,8 @@ $ yarn position-manager:mint --amount0-desired 15 --amount1-desired 15 --amount0
 
 # Call PositionManager increaseLiquidity method.
 # Use `tokenId` from IncreaseLiquidity event when calling mint method.
-$ yarn position-manager:increase-liquidity --amount0-desired 15 --amount1-desired 15 --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --deadline 1626248076
+$ yarn position-manager:increase-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --amount0-desired 15 --amount1-desired 15 --deadline 1626248076
+
+# Call PositionManager decreaseLiquidity method.
+$ yarn position-manager:decrease-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 3 --liquidity 5 --deadline 1626256257
 ```

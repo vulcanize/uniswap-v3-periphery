@@ -10,6 +10,7 @@ import './tasks/factory-deploy'
 import './tasks/position-manager-deploy'
 import './tasks/position-manager-mint'
 import './tasks/position-manager-increase-liquidity'
+import './tasks/position-manager-decrease-liquidity'
 
 const LOW_OPTIMIZER_COMPILER_SETTINGS = {
   version: '0.7.6',
