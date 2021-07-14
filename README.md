@@ -62,6 +62,27 @@ $ yarn hardhat node
 # Deploy WETH9 token.
 $ yarn weth9:deploy
 
+# Deploy factory from uniswap package.
+$ yarn factory:deploy
+
 # Deploy NonfungiblePositionManager contract.
-$ yarn position-manager:deploy
+$ yarn position-manager:deploy --factory 0xFactoryAddress --weth9 0xWeth9Address
+
+# In uniswap-v3-core deploy and initialize pool
+# $ yarn pool:create --factory 0xFactoryAddress --token0 0xToken0Address --token1 0xToken1Address
+# $ yarn pool:initialize --sqrt-price 79228162514264337593543950336 --pool 0xPoolAddress
+
+# Call PositionManager mint method.
+# `deadline` should be a timestamp in the future. Use `date +%s` for current timestamp or `yarn eth:block` to get current block timestamp.
+$ yarn position-manager:mint --amount0-desired 15 --amount1-desired 15 --amount0-min 0 --amount1-min 0 --recipient 0xRecipientAddress --position-manager 0xPositionManagerAddress --pool 0xPoolAddress --deadline 1626247176
+
+# Call PositionManager increaseLiquidity method.
+# Use `tokenId` from IncreaseLiquidity event when calling mint method.
+$ yarn position-manager:increase-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --amount0-desired 15 --amount1-desired 15 --deadline 1626248076
+
+# Call PositionManager decreaseLiquidity method.
+$ yarn position-manager:decrease-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --liquidity 5 --deadline 1626256257
+
+# Call PositionManager collect method.
+$ yarn position-manager:collect --amount0-max 15 --amount1-max 15 --recipient 0xRecipientAddress --position-manager 0xPositionManagerAddress --token-id 1
 ```
