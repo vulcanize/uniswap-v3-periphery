@@ -81,5 +81,8 @@ $ yarn position-manager:mint --amount0-desired 15 --amount1-desired 15 --amount0
 $ yarn position-manager:increase-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --amount0-desired 15 --amount1-desired 15 --deadline 1626248076
 
 # Call PositionManager decreaseLiquidity method.
-$ yarn position-manager:decrease-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 3 --liquidity 5 --deadline 1626256257
+$ yarn position-manager:decrease-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --liquidity 5 --deadline 1626256257
+
+# Call PositionManager collect method.
+$ yarn position-manager:collect --amount0-max 15 --amount1-max 15 --recipient 0xRecipientAddress --position-manager 0xPositionManagerAddress --token-id 1
 ```

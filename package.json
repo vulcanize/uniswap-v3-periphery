@@ -70,6 +70,7 @@
     "eth:block": "hardhat --network localhost block",
     "position-manager:mint": "hardhat --network localhost position-manager-mint",
     "position-manager:increase-liquidity": "hardhat --network localhost position-manager-increase-liquidity",
-    "position-manager:decrease-liquidity": "hardhat --network localhost position-manager-decrease-liquidity"
+    "position-manager:decrease-liquidity": "hardhat --network localhost position-manager-decrease-liquidity",
+    "position-manager:collect": "hardhat --network localhost position-manager-collect"
   }
 }
