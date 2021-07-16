@@ -65,12 +65,26 @@ const DEBUG_COMPILER_SETTINGS = {
           stackAllocation: true,
         },
       }
+    },
+    outputSelection: {
+      '*': {
+        '*': [
+          'abi', 'storageLayout',
+          'metadata', 'evm.bytecode', // Enable the metadata and bytecode outputs of every single contract.
+          'evm.bytecode.sourceMap' // Enable the source map output of every single contract.
+        ],
+        '': [
+          'ast' // Enable the AST output of every single file.
+        ]
+      }
     }
   },
 }
 
 const WETH9_COMPILER_SETTINGS = {
-  ...DEBUG_COMPILER_SETTINGS,
+  // Use DEBUG_COMPILER_SETTINGS in development.
+  // ...DEBUG_COMPILER_SETTINGS,
+  ...DEFAULT_COMPILER_SETTINGS,
   version: '0.5.0'
 }
 
@@ -107,16 +121,18 @@ export default {
   },
   solidity: {
     compilers: [
-      // DEFAULT_COMPILER_SETTINGS,
-      DEBUG_COMPILER_SETTINGS,
+      // Use DEBUG_COMPILER_SETTINGS in development.
+      // DEBUG_COMPILER_SETTINGS,
+      DEFAULT_COMPILER_SETTINGS,
       WETH9_COMPILER_SETTINGS
     ],
     overrides: {
-      // 'contracts/NonfungiblePositionManager.sol': LOW_OPTIMIZER_COMPILER_SETTINGS,
-      // 'contracts/test/MockTimeNonfungiblePositionManager.sol': LOW_OPTIMIZER_COMPILER_SETTINGS,
-      // 'contracts/test/NFTDescriptorTest.sol': LOWEST_OPTIMIZER_COMPILER_SETTINGS,
-      // 'contracts/NonfungibleTokenPositionDescriptor.sol': LOWEST_OPTIMIZER_COMPILER_SETTINGS,
-      // 'contracts/libraries/NFTDescriptor.sol': LOWEST_OPTIMIZER_COMPILER_SETTINGS,
+      // Comment override settings to debug in development.
+      'contracts/NonfungiblePositionManager.sol': LOW_OPTIMIZER_COMPILER_SETTINGS,
+      'contracts/test/MockTimeNonfungiblePositionManager.sol': LOW_OPTIMIZER_COMPILER_SETTINGS,
+      'contracts/test/NFTDescriptorTest.sol': LOWEST_OPTIMIZER_COMPILER_SETTINGS,
+      'contracts/NonfungibleTokenPositionDescriptor.sol': LOWEST_OPTIMIZER_COMPILER_SETTINGS,
+      'contracts/libraries/NFTDescriptor.sol': LOWEST_OPTIMIZER_COMPILER_SETTINGS,
     },
   },
   watcher: {

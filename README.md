@@ -69,7 +69,7 @@ $ yarn factory:deploy
 $ yarn position-manager:deploy --factory 0xFactoryAddress --weth9 0xWeth9Address
 
 # In uniswap-v3-core deploy and initialize pool
-# $ yarn pool:create --factory 0xFactoryAddress --token0 0xToken0Address --token1 0xToken1Address
+# $ yarn pool:create --factory 0xFactoryAddress --token0 0xToken0Address --token1 0xToken1Address --fee 500
 # $ yarn pool:initialize --sqrt-price 79228162514264337593543950336 --pool 0xPoolAddress
 
 # Call PositionManager mint method.
