@@ -21,9 +21,23 @@ $ yarn token:deploy
 
 # Create pool.
 $ yarn pool:create --factory 0xFactoryAddress --token0 0xToken0Address --token1 0xToken1Address --fee 500
+# Triggers Factory PoolCreated event.
 
 # Initialize pool.
-$ yarn pool:initialize --sqrt-price 79228162514264337593543950336 --pool 0xPoolAddress
+$ yarn pool:initialize --sqrt-price 4295128939 --pool 0xPoolAddress
+# Triggers Pool Initialize event.
+
+# Pool mint.
+$ yarn pool:mint --pool 0xPoolAddress --recipient 0xRecipientAddress --amount 10
+# Triggers Pool Mint event.
+
+# Pool burn.
+$ yarn pool:burn --pool 0xPoolAddress --amount 10
+# Triggers Pool Burn event.
+
+# Pool swap.
+$ yarn pool:swap --pool 0xPoolAddress --recipient 0xRecipientAddress --sqrt-price 4295128938
+# Triggers Pool Swap event.
 
 
 # In uniswap-v3-periphery
@@ -39,20 +53,31 @@ $ yarn position-manager:deploy --factory 0xFactoryAddress --weth9 0xWeth9Address
 $ yarn watch:contract --startingBlock 100 --kind nfpm --address 0xPositionManagerAddress
 
 
+# In uniswap-v3-core.
+# Create pool and initialize.
+$ yarn pool:create --factory 0xFactoryAddress --token0 0xToken0Address --token1 0xToken1Address --fee 3000
+
+$ yarn pool:initialize --sqrt-price 79228162514264337593543950336 --pool 0xPoolAddress
+
+
 # In uniswap-v3-periphery
 # Call PositionManager mint method.
 # `deadline` should be a timestamp in the future. Use `date +%s` for current timestamp or `yarn eth:block` to get current block timestamp.
 $ yarn position-manager:mint --amount0-desired 15 --amount1-desired 15 --amount0-min 0 --amount1-min 0 --recipient 0xRecipientAddress --position-manager 0xPositionManagerAddress --pool 0xPoolAddress --deadline 1634367993
+# Triggers events: Pool Mint, NonfungiblePositionManager Transfer & NonfungiblePositionManager IncreaseLiquidity.
 
 # Call PositionManager increaseLiquidity method.
-# Use `tokenId` from IncreaseLiquidity event when calling mint method.
+# Use `tokenId` from the earlier IncreaseLiquidity event.
 $ yarn position-manager:increase-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --amount0-desired 15 --amount1-desired 15 --deadline 1634367993
+# Triggers events: Pool Mint & NonfungiblePositionManager IncreaseLiquidity.
 
 # Call PositionManager decreaseLiquidity method.
 $ yarn position-manager:decrease-liquidity --amount0-min 0 --amount1-min 0 --position-manager 0xPositionManagerAddress --token-id 1 --liquidity 5 --deadline 1634367993
+# Triggers events: Pool Burn & NonfungiblePositionManager DecreaseLiquidity.
 
 # Call PositionManager collect method.
 $ yarn position-manager:collect --recipient 0xRecipientAddress --amount0-max 15 --amount1-max 15 --position-manager 0xPositionManagerAddress --token-id 1
+# Triggers events: Pool Burn & NonfungiblePositionManager Collect.
 ```
 
 ## GraphQL Subscription
