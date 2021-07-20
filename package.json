@@ -65,12 +65,20 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "weth9:deploy": "hardhat --network localhost weth9-deploy",
+    "weth9:deploy:docker": "hardhat --network docker weth9-deploy",
     "factory:deploy": "hardhat --network localhost factory-deploy",
+    "factory:deploy:docker": "hardhat --network docker factory-deploy",
     "position-manager:deploy": "hardhat --network localhost position-manager-deploy",
+    "position-manager:deploy:docker": "hardhat --network docker position-manager-deploy",
     "eth:block": "hardhat --network localhost block",
+    "eth:block:docker": "hardhat --network docker block",
     "position-manager:mint": "hardhat --network localhost position-manager-mint",
+    "position-manager:mint:docker": "hardhat --network docker position-manager-mint",
     "position-manager:increase-liquidity": "hardhat --network localhost position-manager-increase-liquidity",
+    "position-manager:increase-liquidity:docker": "hardhat --network docker position-manager-increase-liquidity",
     "position-manager:decrease-liquidity": "hardhat --network localhost position-manager-decrease-liquidity",
-    "position-manager:collect": "hardhat --network localhost position-manager-collect"
+    "position-manager:decrease-liquidity:docker": "hardhat --network docker position-manager-decrease-liquidity",
+    "position-manager:collect": "hardhat --network localhost position-manager-collect",
+    "position-manager:collect:docker": "hardhat --network docker position-manager-collect"
   }
 }

@@ -94,6 +94,9 @@ export default {
       // Need to set to true when optimizer is not set.
       allowUnlimitedContractSize: true,
     },
+    docker: {
+      url: `http://dapptools:8545`,
+    },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
     },
